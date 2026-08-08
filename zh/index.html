@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>planetlabs.co.jp</title>
+<link rel="icon" href="https://planetlabs.co.jp/wp-content/uploads/2025/01/cropped-cropped-dao-icon-1-270x270.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#a8ad00;--accent-btn:#d5db25;--ink:#424242;--head:#222;--dark:#010101;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang TC","Microsoft JhengHei",Arial,sans-serif;color:var(--ink);background:#fff;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.8}
+img{max-width:100%;height:auto}
+.site-header{position:absolute;top:0;left:0;right:0;z-index:50;background:transparent;display:flex;align-items:center;justify-content:space-between;padding:30px 5%;transition:background .2s}
+.site-header.stuck{position:fixed;background:var(--dark);padding:14px 5%;box-shadow:0 1px 8px rgba(0,0,0,.45)}
+.site-header .logo img{width:233px;height:auto;display:block}
+nav.main{display:flex;align-items:center;gap:34px}
+nav.main a{color:#fff;font-size:16px;letter-spacing:.02em}
+.lang{position:relative;color:#fff;font-size:15px;cursor:pointer}
+.lang .cur::before{content:"🌐 ";font-size:13px}
+.lang ul{display:none;position:absolute;right:0;top:130%;background:#111;list-style:none;min-width:120px;padding:6px 0}
+.lang:hover ul{display:block}
+.lang ul a{display:block;padding:8px 16px;color:#fff}
+#menu-toggle{display:none}
+.burger{display:none;color:#fff;font-size:26px;cursor:pointer}
+.hero{height:700px;background:var(--dark) url("https://planetlabs.co.jp/wp-content/uploads/2025/01/planetlabs-kv.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center}
+.hero .pl-logo{width:250px}
+.intro{background:#000;padding:60px 5%;text-align:center}
+.intro p{font-family:Lora,sans-serif;font-size:18px;line-height:36px;color:#fefefe;max-width:1280px;margin:0 auto}
+.intro a{color:var(--accent)}
+.company{background:#f4f4f8;padding:70px 0}
+.company .rows{width:90%;max-width:1400px;margin:0 auto}
+.row{display:flex;padding:24px 16px;border-bottom:1px solid #e4e4e8;font-family:Lora,sans-serif;font-size:16px}
+.row:last-child{border-bottom:0}
+.row .k{flex:0 0 290px;font-weight:600}
+.row .v{flex:1}
+.row .v .note{display:block}
+section.block{padding:90px 5%;max-width:1280px;margin:0 auto;text-align:center}
+h2{font-family:Lora,sans-serif;font-size:40px;font-weight:500;color:var(--head);margin-bottom:44px}
+.block p{font-family:Lora,sans-serif;font-size:18px;line-height:2;margin-bottom:28px}
+.sub{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:24px;font-weight:400;color:var(--ink);margin:56px 0 28px}
+.diagram{margin:24px auto;max-width:880px}
+.diagram .mob{display:none}
+.member{display:flex;gap:44px;text-align:left;margin:0 auto 56px;max-width:1400px;align-items:flex-start}
+.member img{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.member h4{font-family:Lora,sans-serif;font-size:20px;font-weight:400;color:var(--ink)}
+.member .role{font-family:Lora,sans-serif;font-size:13px;color:var(--ink);margin:2px 0 6px}
+.member .li{font-size:15px}
+.member p{font-family:Lora,sans-serif;font-size:15px;line-height:1.5;margin-top:10px}
+footer{background:var(--dark);color:#fff;text-align:center;padding:30px 5%;font-size:16px}
+#top-btn{position:fixed;right:28px;bottom:28px;width:44px;height:44px;border-radius:50%;background:var(--accent-btn);color:#333;border:0;font-size:18px;cursor:pointer;display:none;z-index:60}
+@media(max-width:900px){
+ nav.main{position:fixed;top:70px;right:0;left:0;background:var(--dark);flex-direction:column;gap:0;display:none;padding:10px 0}
+ nav.main a{padding:14px 8%}
+ #menu-toggle:checked ~ nav.main{display:flex}
+ .burger{display:block}
+ .site-header{padding:16px 5%}
+ .site-header .logo img{width:180px}
+ .hero{height:480px}
+ .hero .pl-logo{width:190px}
+ .row{flex-direction:column;gap:6px}
+ .row .k{flex:none}
+ .diagram .pc{display:none}
+ .diagram .mob{display:block;margin:0 auto}
+ .member{flex-direction:column;align-items:center;text-align:center}
+ .member p{text-align:left}
+ h2{font-size:32px}
+}
+</style>
+</head>
+<body id="top">
+<header class="site-header" id="hdr">
+  <a class="logo" href="./"><img src="https://planetlabs.co.jp/wp-content/uploads/2025/05/planetlab-logo-white.png" alt="Planet Labs"></a>
+  <input type="checkbox" id="menu-toggle">
+  <label class="burger" for="menu-toggle">☰</label>
+  <nav class="main">
+    <a href="#about">關於我們</a>
+    <a href="#members">團隊成員</a>
+    <a href="https://planetdao.world/zh/properties-zh/">專案物件</a>
+    <span class="lang"><span class="cur">中文</span>
+      <ul>
+        <li><a href="../ja/">日本語</a></li>
+        <li><a href="../">English</a></li>
+        <li><a href="./">中文</a></li>
+      </ul>
+    </span>
+  </nav>
+</header>
+
+<div class="hero">
+  <img class="pl-logo" src="https://planetlabs.co.jp/wp-content/uploads/2025/01/pl-logo.png" alt="Planet Labs">
+</div>
+
+<div class="intro">
+  <p>Planet Labs Inc. 是 PlanetDAO 在日本各項計畫的專屬管理公司。我們負責管理以獨立股份有限公司形式運作的文化與歷史資產，同時也支援與我們使命一致的精選外部專案。我們的工作涵蓋基礎架構建置、促進在地合作關係，以及推動由社群與股東共同參與決策的計畫，讓具有共享價值的資產得以保存、活化並永續發展。<br>
+  <a href="https://planetdao.world/zh/properties-zh/">探索 PlanetDAO 的專案物件組合</a></p>
+</div>
+
+<div class="company">
+  <div class="rows">
+    <div class="row"><div class="k">公司名稱：</div><div class="v">株式会社Planet Labs</div></div>
+    <div class="row"><div class="k">執行長：</div><div class="v">西村 環希</div></div>
+    <div class="row"><div class="k">地址：</div><div class="v">102-0093 東京都千代田区平河町2-5-3 MIDORI.so NAGATACHO</div></div>
+    <div class="row"><div class="k">成立日期：</div><div class="v">2023年11月20日</div></div>
+    <div class="row"><div class="k">主要投資人：</div><div class="v"><a href="https://www.gaiax.co.jp/">Gaiax co.ltd.</a><span class="note">（名古屋證券交易所 Next Market 上市公司｜股票代號：3775）</span></div></div>
+  </div>
+</div>
+
+<section class="block" id="about">
+  <h2>關於PlanetDAO</h2>
+  <p>Planet Labs 為 PlanetDAO 各項計畫提供營運支援。PlanetDAO 負責投資募集與共同擁有機制，而 Planet Labs 則負責以獨立股份有限公司架構運作之文化與歷史資產的開發與管理。透過與在地營運夥伴合作，我們協助推動基礎設施建設、住宿設施營運及社群協調等工作。</p>
+  <p>下方圖表說明了由 PlanetDAO 模式直接持有及營運之專案的核心架構。</p>
+  <div class="diagram">
+    <img class="pc" src="https://planetlabs.co.jp/wp-content/uploads/2025/09/planetdao-op.png" alt="PlanetDAO operations">
+    <img class="mob" src="https://planetlabs.co.jp/wp-content/uploads/2025/09/planetdao-op-mob.png" alt="PlanetDAO operations">
+  </div>
+  <p class="sub">「Supported by PlanetDAO」專案</p>
+  <p>除了管理 PlanetDAO 直接持有的專案外，Planet Labs 亦以「Supported by PlanetDAO」名義支援部分精選外部計畫。這些專案並非由 PlanetDAO 擁有或營運，但其理念與 PlanetDAO 的使命一致。</p>
+  <p>我們提供的支援內容可能包括銷售推廣協助、行銷宣傳或策略合作等。由於此類專案採用不同的營運架構，因此未納入上述圖表所示的架構之中。</p>
+</section>
+
+<section class="block" id="members">
+  <h2>團隊成員</h2>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/planet-tamaki.jpg" alt="西村 環希">
+    <div>
+      <h4>西村 環希</h4>
+      <div class="role">創辦人暨執行長</div>
+      <a class="li" href="https://www.linkedin.com/in/tamakinishimura">LinkedIn</a>
+      <p>2018 年加入 Gaiax Inc.，負責面向訪日旅客的體驗平台營運，專注於結合在地社群的體驗活動與活動型娛樂內容。2021 年參與創立位於東京澀谷、專為 Web3 創業者打造的共同工作空間「CryptoBase」，並於各類產業活動與研討會中擔任講者。2023 年創立 PlanetDAO。來自大阪府東大阪市。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/planet-ishikawa.jpg" alt="石川 潤">
+    <div>
+      <h4>石川 潤</h4>
+      <div class="role">共同創辦人／董事</div>
+      <a class="li" href="https://www.linkedin.com/in/junishikawa/">LinkedIn</a>
+      <p>曾任 Gaiax Inc. 子公司 GaiaX Global Marketing &amp; Ventures 董事，負責新事業開發。移居至島根縣海士町後，持續探索與自然環境及在地社區和諧共生的生活方式，同時投入地方創生與葡萄酒釀造等活動。在 PlanetDAO，主要負責與在地利害關係人建立合作關係及協調談判工作。來自香川縣觀音寺市。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/chiafang.jpg" alt="郭 家芳">
+    <div>
+      <h4>郭 家芳</h4>
+      <div class="role">董事／行銷與公關負責人</div>
+      <a class="li" href="https://www.linkedin.com/in/cfkuo/">LinkedIn</a>
+      <p>擁有超過二十年的數位媒體產業經驗，曾於台灣與新加坡工作，目前定居東京。專長涵蓋台灣、東南亞及印度等市場，並具備豐富的跨國行銷與媒體實務經驗。在 PlanetDAO，運用全球視野與深厚的媒體專業知識，協助打造創新的解決方案，並建立人與地方之間有意義的連結。來自台灣台北。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2025/05/massan.jpg" alt="髙本 昌宏">
+    <div>
+      <h4>髙本 昌宏</h4>
+      <div class="role">資產開發／專案整合負責人</div>
+      <p>曾任職於 Suntory、Apple Japan、Rosetta Stone Japan 等多家企業，並於 Mikle Inc. 主導數位轉型及地方創生專案。同時擔任一般財團法人ひらめき財團（Hirameki Foundation）理事。加入 ADDress Inc. 後，以多據點生活的方式參與策略據點開發工作。在 PlanetDAO，主要負責發掘與開發未來專案所需的資產，並協助建立推動專案所需的在地基礎與合作網絡。來自岡山縣岡山市。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/natalia.jpg" alt="Natalia Davydova">
+    <div>
+      <h4>Natalia Davydova</h4>
+      <div class="role">品牌總監</div>
+      <p>於 2000 年加入 Gaiax Co., Ltd.，並於 2002 年創立網頁設計部門。2015 年成立品牌事業部門，負責 Gaiax 整體企業品牌策略與管理至今，同時也參與 Gaiax 旗下事業及投資企業的品牌相關工作。作為設計師與網站開發人員，Natalia 為 PlanetDAO 提供品牌與數位設計方面的支援，並代表 PlanetDAO 主要投資人 Gaiax 持續提供後勤與營運支援。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/niko.jpg" alt="Niko Lanzuisi">
+    <div>
+      <h4>Niko Lanzuisi</h4>
+      <div class="role">視覺內容創作者</div>
+      <p>2005年畢業於 HKU art academy，長期深耕影片製作與商業攝影領域。2017年加入 Gaiax 株式會社品牌團隊，統籌大部分企業視覺內容，並不定期支援旗下事業與投資企業的視覺創意工作。擅長透過影像傳遞文字難以表達的概念與情感。</p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Planet Labs Inc. All rights reserved.</footer>
+<button id="top-btn" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+addEventListener('scroll',()=>{
+  document.getElementById('top-btn').style.display=scrollY>400?'block':'none';
+  document.getElementById('hdr').classList.toggle('stuck',scrollY>110);
+});
+</script>
+</body>
+</html>
