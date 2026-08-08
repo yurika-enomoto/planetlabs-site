@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>planetlabs.co.jp</title>
+<link rel="icon" href="https://planetlabs.co.jp/wp-content/uploads/2025/01/cropped-cropped-dao-icon-1-270x270.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#a8ad00;--accent-btn:#d5db25;--ink:#424242;--head:#222;--dark:#010101;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP",Arial,sans-serif;color:var(--ink);background:#fff;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.8}
+img{max-width:100%;height:auto}
+.site-header{position:absolute;top:0;left:0;right:0;z-index:50;background:transparent;display:flex;align-items:center;justify-content:space-between;padding:30px 5%;transition:background .2s}
+.site-header.stuck{position:fixed;background:var(--dark);padding:14px 5%;box-shadow:0 1px 8px rgba(0,0,0,.45)}
+.site-header .logo img{width:233px;height:auto;display:block}
+nav.main{display:flex;align-items:center;gap:34px}
+nav.main a{color:#fff;font-size:16px;letter-spacing:.02em}
+.lang{position:relative;color:#fff;font-size:15px;cursor:pointer}
+.lang .cur::before{content:"🌐 ";font-size:13px}
+.lang ul{display:none;position:absolute;right:0;top:130%;background:#111;list-style:none;min-width:120px;padding:6px 0}
+.lang:hover ul{display:block}
+.lang ul a{display:block;padding:8px 16px;color:#fff}
+#menu-toggle{display:none}
+.burger{display:none;color:#fff;font-size:26px;cursor:pointer}
+.hero{height:700px;background:var(--dark) url("https://planetlabs.co.jp/wp-content/uploads/2025/01/planetlabs-kv.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center}
+.hero .pl-logo{width:250px}
+.intro{background:#000;padding:60px 5%;text-align:center}
+.intro p{font-family:Lora,sans-serif;font-size:18px;line-height:36px;color:#fefefe;max-width:1280px;margin:0 auto}
+.intro a{color:var(--accent)}
+.company{background:#f4f4f8;padding:70px 0}
+.company .rows{width:90%;max-width:1400px;margin:0 auto}
+.row{display:flex;padding:24px 16px;border-bottom:1px solid #e4e4e8;font-family:Lora,sans-serif;font-size:16px}
+.row:last-child{border-bottom:0}
+.row .k{flex:0 0 290px;font-weight:600}
+.row .v{flex:1}
+.row .v .note{display:block}
+section.block{padding:90px 5%;max-width:1280px;margin:0 auto;text-align:center}
+h2{font-family:Lora,sans-serif;font-size:40px;font-weight:500;color:var(--head);margin-bottom:44px}
+.block p{font-family:Lora,sans-serif;font-size:18px;line-height:2;margin-bottom:28px}
+.sub{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:24px;font-weight:400;color:var(--ink);margin:56px 0 28px}
+.diagram{margin:24px auto;max-width:880px}
+.diagram .mob{display:none}
+.member{display:flex;gap:44px;text-align:left;margin:0 auto 56px;max-width:1400px;align-items:flex-start}
+.member img{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.member h4{font-family:Lora,sans-serif;font-size:20px;font-weight:400;color:var(--ink)}
+.member .role{font-family:Lora,sans-serif;font-size:13px;color:var(--ink);margin:2px 0 6px}
+.member .li{font-size:15px}
+.member p{font-family:Lora,sans-serif;font-size:15px;line-height:1.5;margin-top:10px}
+footer{background:var(--dark);color:#fff;text-align:center;padding:30px 5%;font-size:16px}
+#top-btn{position:fixed;right:28px;bottom:28px;width:44px;height:44px;border-radius:50%;background:var(--accent-btn);color:#333;border:0;font-size:18px;cursor:pointer;display:none;z-index:60}
+@media(max-width:900px){
+ nav.main{position:fixed;top:70px;right:0;left:0;background:var(--dark);flex-direction:column;gap:0;display:none;padding:10px 0}
+ nav.main a{padding:14px 8%}
+ #menu-toggle:checked ~ nav.main{display:flex}
+ .burger{display:block}
+ .site-header{padding:16px 5%}
+ .site-header .logo img{width:180px}
+ .hero{height:480px}
+ .hero .pl-logo{width:190px}
+ .row{flex-direction:column;gap:6px}
+ .row .k{flex:none}
+ .diagram .pc{display:none}
+ .diagram .mob{display:block;margin:0 auto}
+ .member{flex-direction:column;align-items:center;text-align:center}
+ .member p{text-align:left}
+ h2{font-size:32px}
+}
+</style>
+</head>
+<body id="top">
+<header class="site-header" id="hdr">
+  <a class="logo" href="./"><img src="https://planetlabs.co.jp/wp-content/uploads/2025/05/planetlab-logo-white.png" alt="Planet Labs"></a>
+  <input type="checkbox" id="menu-toggle">
+  <label class="burger" for="menu-toggle">☰</label>
+  <nav class="main">
+    <a href="#about">PlanetDAOについて</a>
+    <a href="#member">メンバー</a>
+    <a href="https://planetdao.world/ja/planetdao-properties-jp/">PlanetDAO物件へ</a>
+    <span class="lang"><span class="cur">日本語</span>
+      <ul>
+        <li><a href="./">日本語</a></li>
+        <li><a href="../">English</a></li>
+        <li><a href="../zh/">中文</a></li>
+      </ul>
+    </span>
+  </nav>
+</header>
+
+<div class="hero">
+  <img class="pl-logo" src="https://planetlabs.co.jp/wp-content/uploads/2025/01/pl-logo.png" alt="Planet Labs">
+</div>
+
+<div class="intro">
+  <p>株式会社Planet Labsは、文化財や歴史的建造物を次世代につなぐ新しい仕組み「PlanetDAO」の企画・運営を担う日本法人です。<br>
+  物件ごとに設立されるプロジェクト会社の基盤となり、企画立案、資金調達、コミュニティ運営、法務対応などを総合的にサポートしています。<br>
+  <a href="https://planetdao.world/ja/">PlanetDAOについてはこちら</a></p>
+</div>
+
+<div class="company">
+  <div class="rows">
+    <div class="row"><div class="k">会社名:</div><div class="v">株式会社Planet Labs</div></div>
+    <div class="row"><div class="k">代表者:</div><div class="v">西村 環希</div></div>
+    <div class="row"><div class="k">本社:</div><div class="v">102-0093 東京都千代田区平河町2-5-3 MIDORI.so NAGATACHO</div></div>
+    <div class="row"><div class="k">設立:</div><div class="v">2023年11月20日</div></div>
+    <div class="row"><div class="k">主要投資家:</div><div class="v"><a href="https://www.gaiax.co.jp/">株式会社ガイアックス</a><span class="note">(名古屋証券取引所ネクスト市場上場 | 証券コード3775)</span></div></div>
+  </div>
+</div>
+
+<section class="block" id="about">
+  <h2>PlanetDAOについて</h2>
+  <p>PlanetDAOはひとつの法人ではなく、物件ごとに独立した法人を設立し、それぞれのプロジェクトを運営しています。たとえば、170年の歴史を持つお寺のプロジェクトには「株式会社PlanetDAO001」、竹林の古民家には「株式会社PlanetDAO002」といった専用法人が存在します。物件の所有権は各法人にありますが、基盤整備や運営開始、地域との連携やコミュニティづくりといった重要な役割は、株主の意思に基づき株式会社Planet Labsが担っています。</p>
+  <p>Planet Labsは、日本法人としてすべてのPlanetDAO物件のプロジェクト管理を統括し、日本出身の共同創業者を筆頭に多国籍メンバーで構成されるチームによって運営されています。現地の宿泊運営者と連携することで、文化的価値の継承と収益性の両立を目指しています。</p>
+  <p>また、法務面では日本国内有数の法律事務所である長島・大野・常松法律事務所と提携し、DAOや暗号資産に関する法制度の整備にも積極的に取り組んでいます。</p>
+  <p>Planet Labsは、スタートアップスタジオGaiaxの支援を受けており、Gaiaxは主要出資者として、エンジニアリングやバックオフィス体制の強化などを通じて、PlanetDAOの戦略的ビジョンの実現をサポートしています。</p>
+  <p>PlanetDAOとPlanet Labsの関係をわかりやすくするために、以下の図では、資金調達期間中の投資の流れと、プロジェクト開始後の物件管理の仕組みを示しています。</p>
+  <p class="sub">資金調達期間中の体制</p>
+  <div class="diagram">
+    <img class="pc" src="https://planetlabs.co.jp/wp-content/uploads/2025/05/investment-pc-jp.png" alt="資金調達期間中の体制">
+    <img class="mob" src="https://planetlabs.co.jp/wp-content/uploads/2025/05/investment-mob-jp.png" alt="資金調達期間中の体制">
+  </div>
+  <p class="sub">宿泊施設オープン後の運営体制</p>
+  <div class="diagram">
+    <img class="pc" src="https://planetlabs.co.jp/wp-content/uploads/2025/05/operations-pc-jp.png" alt="宿泊施設オープン後の運営体制">
+    <img class="mob" src="https://planetlabs.co.jp/wp-content/uploads/2025/05/operations-mob-jp.png" alt="宿泊施設オープン後の運営体制">
+  </div>
+  <p>PlanetDAOへの掲載をご希望の物件オーナーの方は、<a href="https://planetdao.world/ja/jp/">こちら</a>から詳細をご確認ください。</p>
+</section>
+
+<section class="block" id="member">
+  <h2>メンバー</h2>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/planet-tamaki.jpg" alt="西村 環希">
+    <div>
+      <h4>西村 環希</h4>
+      <div class="role">共同創業者 / 代表取締役</div>
+      <a class="li" href="https://www.linkedin.com/in/tamakinishimura">LinkedIn</a>
+      <p>2018年から株式ガイアックスにてインバウンド旅行者を対象にした体験プラットフォームの運営を開始し、地域密着型の体験やイベントショーの事業を展開。2021年には渋谷でWeb3事業者向けのコワーキングスペース「CryptoBase」の設立に携わり、同時に数々のカンファレンスでの登壇を経験。2023年にPlanetDAOを創業。大阪府東大阪出身。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/planet-ishikawa.jpg" alt="石川 潤">
+    <div>
+      <h4>石川 潤</h4>
+      <div class="role">共同創業者 / 取締役</div>
+      <a class="li" href="https://www.linkedin.com/in/junishikawa/">LinkedIn</a>
+      <p>株式会社ガイアックスの子会社であるDirector of GaiaX Global Marketing &amp; Venturesの元ディレクターとして、ビジネスの立ち上げを主導。海士町に移住して以来、自然とコミュニティと調和する持続可能な生活の実践を探求し、島の活性化やワイン造りなどの活動にも取り組む。PlanetDAOでは地域との折衝を担う。香川県観音寺出身。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/chiafang.jpg" alt="郭 家芳">
+    <div>
+      <h4>郭 家芳</h4>
+      <div class="role">取締役 / マーケティング・PR</div>
+      <a class="li" href="https://www.linkedin.com/in/cfkuo/">LinkedIn</a>
+      <p>デジタルメディア分野で20年以上の経験を持ち、台湾やシンガポールでの勤務を経て、現在は東京を拠点としている。特に台湾、東南アジア、インドなどの市場に精通しており、グローバルな視点とメディアの専門知識を活かし、PlanetDAOの海外マーケティングやPRを担う。台北出身。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2025/05/massan.jpg" alt="髙本 昌宏">
+    <div>
+      <h4>髙本 昌宏</h4>
+      <div class="role">拠点開発 / アグリゲーター</div>
+      <p>サントリー株式会社、アップルコンピューター株式会社、ロゼッタストーンジャパン株式会社など様々な業界を経て、Mikle株式会社にてDX地域活性化事業を担う。一般財団法人ひらめき財団の理事も務める。株式会社ADDressで地域開発を担当し、多拠点生活で暮らしている。PlanetDAOでは地域の拠点開発と体制づくりを担う。岡山県岡山市生まれ。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/natalia.jpg" alt="Natalia Davydova">
+    <div>
+      <h4>Natalia Davydova</h4>
+      <div class="role">ブランディングディレクター</div>
+      <p>2000年に株式会社ガイアックスに入社し、2002年にWEBデザイン事業部を設立。2015年にはブランディング事業部を創設し、企業ブランディングを監督。PlanetDAOでは、デザイナーおよびWEBデベロッパーとしての役割を担う。</p>
+    </div>
+  </div>
+  <div class="member">
+    <img src="https://planetlabs.co.jp/wp-content/uploads/2024/12/niko.jpg" alt="Niko Lanzuisi">
+    <div>
+      <h4>Niko Lanzuisi</h4>
+      <div class="role">コンテンツクリエイター</div>
+      <p>2005年にHKU芸術アカデミーを卒業後、動画制作と商業写真の分野で活躍。2017年に株式会社ガイアックスのブランディング事業部に加わり、ビジュアルコンテンツの監督や社内事業部と投資先のビジュアルコンテンツも提供。言葉では伝えきれないコンセプトや感情を伝えることを得意としている。</p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Planet Labs Inc. All rights reserved.</footer>
+<button id="top-btn" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+addEventListener('scroll',()=>{
+  document.getElementById('top-btn').style.display=scrollY>400?'block':'none';
+  document.getElementById('hdr').classList.toggle('stuck',scrollY>110);
+});
+</script>
+</body>
+</html>
